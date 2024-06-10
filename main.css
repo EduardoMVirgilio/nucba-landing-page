@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
+
+:root {
+  --fira: "Fira Sans", sans-serif;
+  --teacher: "Teachers", sans-serif;
+  --cream: #ffffec;
+  --dark-cream: #f1e4c3;
+  --coffe: #c6a969;
+  --green: #597e52;
+  --black: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: var(--fira);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--cream);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: proximity;
+  scroll-margin-block-start: 10px;
+}
+
+header#main {
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 1rem;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-cream);
+}
+header#main > picture {
+  width: calc(5vh - 0.5rem);
+  aspect-ratio: 1 / 1;
+}
+header#main > picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+header#main > nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex: 1;
+  padding-right: 2rem;
+}
+header#main > nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--black);
+  transition: all 500ms ease-in-out;
+  font-weight: 600;
+}
+header#main > nav a:hover {
+  color: var(--coffe);
+}
+
+header#main > form {
+  flex: 1;
+  display: none;
+  justify-content: flex-end;
+  padding: 0 0.25rem;
+  position: relative;
+}
+header#main > form label {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+header#main > form label svg {
+  width: 100%;
+  height: 100%;
+}
+
+header#main > form input[type="checkbox"] {
+  display: none;
+}
+
+header#main > form input[type="checkbox"]:checked + nav {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  gap: 1rem;
+}
+header#main > form input[type="checkbox"] + nav {
+  display: none;
+}
+header#main > form input[type="checkbox"] + nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--cream);
+  transition: all 500ms ease-in-out;
+}
+header#main > form input[type="checkbox"] + nav a:hover {
+  color: var(--coffe);
+}
+
+@media (max-width: 1280px) {
+  header#main > nav {
+    display: none;
+  }
+  header#main > form {
+    display: flex;
+  }
+}
+
+main img,
+section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+main {
+  display: flex;
+  width: 100vw;
+  max-width: 1280px;
+  flex-wrap: wrap;
+  padding-top: calc(5vh + 1rem);
+}
+
+main article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+main article h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: var(--teacher);
+  text-transform: uppercase;
+}
+
+main article p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+main form {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--green);
+  border-radius: 0.25rem;
+  color: var(--cream);
+  align-items: center;
+}
+main form label {
+  padding: 0 0.25rem;
+}
+main form input {
+  flex: 1;
+  outline: none;
+  background-color: transparent;
+  color: var(--cream);
+  font-family: var(--fira);
+  font-size: 1rem;
+  padding: 0 0.25rem;
+}
+
+main form input::placeholder {
+  color: var(--cream);
+  font-family: var(--fira);
+  font-size: 1rem;
+}
+main form input:focus {
+  background-color: transparent;
+}
+main form button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+main form button svg {
+  width: 100%;
+  height: 100%;
+}
+
+main picture {
+  width: 50%;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 1280px) {
+  main picture {
+    display: none;
+  }
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  max-width: 1280px;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+section:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+section picture {
+  width: 50%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+section header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--teacher);
+}
+section article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+section article h3 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-family: var(--teacher);
+  text-decoration: underline;
+}
+
+@media (max-width: 1280px) {
+  section {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  section:last-child {
+    margin-bottom: 0;
+  }
+  section picture {
+    width: 100%;
+  }
+}
